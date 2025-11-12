@@ -24,7 +24,7 @@ def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
     meta['data'] = items['data']
 
 
-    logger.log("CREATE_METADATA", f"мета данные : \n{json.dumps(meta, ensure_ascii=False, indent=2)}")
+    # logger.log("CREATE_METADATA", f"мета данные : \n{json.dumps(meta, ensure_ascii=False, indent=2)}")
 
     with open(f'{base_dir}/meta.json', "w+", encoding="UTF-8") as meta_file:
         json.dump(meta, meta_file, ensure_ascii=False, indent=4)
