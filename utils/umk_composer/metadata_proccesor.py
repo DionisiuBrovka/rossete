@@ -40,18 +40,16 @@ def load_metadata(base_dir):
         logger.error("Файл мета данных не найден")
         raise Exception("Файл мета данных не найден")
     
-    logger.log("LOAD_METADATA", "загружаем мета данные из : {metadata_path}")
+    logger.log(f"LOAD_METADATA", "загружаем мета данные из : {metadata_path}")
     
 
     with open(metadata_path, "r+", encoding="UTF-8") as meta_file:
         meta_data = json.load(meta_file)
 
-        setting = meta_data['settings']
-        logger.log("LOAD_METADATA", f"Загружены настройки:")
-        logger.log("LOAD_METADATA", f"\n{json.dumps(setting, ensure_ascii=False, indent=2)}")
+        settings = meta_data['settings']
+        logger.log("LOAD_METADATA", f"Загружены настройки: : всего {len(settings)} записей")
 
         data = meta_data['data']
-        logger.log("LOAD_METADATA", "Загружены данные:")
         logger.log("LOAD_METADATA", f"Загружены данные: всего {len(data)} записей") 
 
-        return setting, data
+        return settings, data
