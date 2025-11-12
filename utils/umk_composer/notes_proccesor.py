@@ -36,10 +36,12 @@ def create_note_from_metadata(
             if get_item_prop:
                 item_file.write(get_item_prop(settings, item))
                 item_file.write("\n")
+                item_file.write("\n")
 
             if get_item_promt:
                 item_file.write("<promt>\n")
                 item_file.write(get_item_promt(settings, item))
+                item_file.write("\n")
                 item_file.write("</promt>\n")
         
             logger.log("CREATING_NOTES",f"файл {file_name} создан")
