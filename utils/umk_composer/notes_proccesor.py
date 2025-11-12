@@ -6,10 +6,10 @@ def create_note_from_metadata(
         settings : dict, 
         data : dict, 
         item_type : str, 
-        get_name : function, 
-        item_prop : function = None, 
-        item_choise : function = None,
-        promt :function  = None):
+        get_name, 
+        item_prop = None, 
+        item_choise = None,
+        promt = None):
     logger.level("CREATING_NOTES", no=11, color="<green>")
 
     # собираем мета данные определенных типов
@@ -43,3 +43,13 @@ def create_note_from_metadata(
                 item_file.write("</promt>\n")
         
             logger.log("CREATING_NOTES",f"файл {file_name} создан")
+
+
+def create_lection_notes(base_dir, settings, data):
+    create_note_from_metadata(
+        settings,
+        data,
+        "лекция",
+        get_name = lambda _n, _note: f"{base_dir}/Лекция №{_n+1}",
+        item_prop=lambda _settings, _note: "pisi"
+    )

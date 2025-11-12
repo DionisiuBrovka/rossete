@@ -2,8 +2,10 @@ from loguru import logger
 import tempfile
 import os
 
+
 from .metadata_proccesor import create_metadata_from_ktp, load_metadata
 from .folder_proccesor import create_folders
+from .notes_proccesor import create_lection_notes
 
 def compose_umk(ktp_file_dir: str, discipline: str) -> str:
     logger.level("COMPOSE_UMK", no=10, color="<white>")
@@ -23,5 +25,9 @@ def compose_umk(ktp_file_dir: str, discipline: str) -> str:
         logger.log("COMPOSE_UMK", f"создаем папки", )
         create_folders(temp_dir, settings)
         logger.log("COMPOSE_UMK", f"папки созданы", )
+
+        logger.log("COMPOSE_UMK", f"создаем заметки лекций", )
+        create_lection_notes(temp_dir, settings, data)
+        logger.log("COMPOSE_UMK", f"заметки лекций созданы", )
 
 
