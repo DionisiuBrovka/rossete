@@ -26,15 +26,15 @@ def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
 
     logger.log("CREATE_METADATA", f"мета данные : \n{json.dumps(meta, ensure_ascii=False, indent=2)}")
 
-    with open(f'{base_dir}\\meta.json', "w+", encoding="UTF-8") as meta_file:
+    with open(f'{base_dir}/meta.json', "w+", encoding="UTF-8") as meta_file:
         json.dump(meta, meta_file, ensure_ascii=False, indent=4)
-        logger.log("CREATE_METADATA", f"сохранили мета данные в файл : {f'{base_dir}\\meta.json'}")
+        logger.log("CREATE_METADATA", f"сохранили мета данные в файл : {f'{base_dir}/meta.json'}")
 
 
 def load_metadata(base_dir):
     logger.level("LOAD_METADATA", no=11, color="<green>")
 
-    metadata_path = f"{base_dir}\\meta.json"
+    metadata_path = f"{base_dir}/meta.json"
 
     if not os.path.exists(base_dir):
         logger.error("Файл мета данных не найден")
