@@ -40,7 +40,7 @@ def load_metadata(base_dir):
         logger.error("Файл мета данных не найден")
         raise Exception("Файл мета данных не найден")
     
-    logger.log(f"LOAD_METADATA", "загружаем мета данные из : {metadata_path}")
+    logger.log("LOAD_METADATA", f"загружаем мета данные из : {metadata_path}")
     
 
     with open(metadata_path, "r+", encoding="UTF-8") as meta_file:
