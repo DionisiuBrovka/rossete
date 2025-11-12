@@ -5,7 +5,7 @@ from loguru import logger
 from .excel_proccesor import excel_to_structure
 
 def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
-    logger.level("CREATE_METADATA", no=11, color="<green>")
+    logger.level("CREATE_METADATA", no=11, color="<white>")
     
     if not os.path.exists(ktp_file_path):
         logger.error("Файл КТП не найден")
@@ -32,7 +32,7 @@ def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
 
 
 def load_metadata(base_dir):
-    logger.level("LOAD_METADATA", no=11, color="<green>")
+    logger.level("LOAD_METADATA", no=11, color="<white>")
 
     metadata_path = f"{base_dir}/meta.json"
 

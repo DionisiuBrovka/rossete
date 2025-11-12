@@ -4,7 +4,7 @@ from loguru import logger
 
 
 def create_folders(base_dir, settings):
-    logger.level("CREATING_FOLDERS", no=11, color="<green>")
+    logger.level("CREATING_FOLDERS", no=11, color="<white>")
 
     settings['teoretical_part_path'] = f"{base_dir}/1 Теоретический раздел"
     settings['parctical_part_path'] = f"{base_dir}/2 Практический раздел"

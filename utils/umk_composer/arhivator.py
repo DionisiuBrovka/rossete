@@ -11,7 +11,7 @@ def pack_and_copy_umk(temp_dir: str, output_dir: str, archive_name: str = "UMK_a
     :param archive_name: имя создаваемого архива (по умолчанию 'UMK_archive.zip')
     :return: путь к итоговому архиву
     """
-    logger.level("PACK_UMK", no=11, color="<cyan>")
+    logger.level("PACK_UMK", no=11, color="<white>")
     logger.log("PACK_UMK", f"начинается упаковка содержимого {temp_dir}")
 
     # Проверка путей

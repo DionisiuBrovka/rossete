@@ -10,7 +10,7 @@ def create_note_from_metadata(
         get_item_prop = None, 
         get_item_choise = None,
         get_item_promt = None):
-    logger.level("CREATING_NOTES", no=11, color="<green>")
+    logger.level("CREATING_NOTES", no=11, color="<white>")
 
     # собираем мета данные определенных типов
     items = []
@@ -45,7 +45,7 @@ def create_note_from_metadata(
             logger.log("CREATING_NOTES",f"файл {file_name} создан")
 
 
-def create_lection_notes( settings, data):
+def create_lection_notes(settings, data):
     create_note_from_metadata(
         settings,
         data,

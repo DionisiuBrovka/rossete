@@ -1,3 +1,4 @@
+import sys
 from loguru import logger
 import tempfile
 import os
@@ -10,7 +11,7 @@ from .notes_proccesor import create_lection_notes
 from .arhivator import pack_and_copy_umk
 
 def compose_umk(ktp_file_dir: str, discipline: str) -> str:
-    logger.level("COMPOSE_UMK", no=10, color="<white>")
+    logger.level("COMPOSE_UMK", no=10, color="<blue>")
     logger.log("COMPOSE_UMK","cтарт сборки УМК")
 
     with tempfile.TemporaryDirectory() as temp_dir:
