@@ -56,3 +56,7 @@ def create_lection_notes(settings, data):
         get_item_prop=lambda _settings, _note: "pisi",
         get_item_promt=lambda _settings, _note: "pisi",
     )
+
+
+def create_all_notes(settings, data):
+    create_lection_notes(settings, data)
