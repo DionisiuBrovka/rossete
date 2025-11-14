@@ -2,6 +2,8 @@ import os
 import random
 from loguru import logger
 
+from .ai_proccesor import *
+
 
 def create_note_prop(t, settings, note):
     return f"""---
@@ -23,7 +25,6 @@ def create_note_from_metadata(
         get_item_prop = None, 
         get_item_choise = None,
         get_item_promt = None):
-    logger.level("CREATING_NOTES", no=11, color="<white>")
 
     # собираем мета данные определенных типов
     items = []
@@ -67,9 +68,44 @@ def create_lection_notes(settings, data):
         "лекция",
         get_item_name = lambda _n, _note: f"{settings['teoretical_part_path']}/Лекция №{_n+1}.md",
         get_item_prop=lambda _settings, _note: create_note_prop("Лекция", _settings, _note),
-        get_item_promt=lambda _settings, _note: "pisi",
+        get_item_promt=lambda _settings, _note: make_promt_lec(_note['title'], _note['h'], _settings['discipline']),
     )
 
 
+def create_pract_notes(settings, data):
+    create_note_from_metadata(
+        settings,
+        data,
+        "лаба",
+        get_item_name = lambda _n, _note: f"{settings['parctical_part_path']}/Лабораторная работа №{_n+1}.md",
+        get_item_prop=lambda _settings, _note: create_note_prop("Лабораторная работа", _settings, _note),
+        get_item_promt=lambda _settings, _note: make_promt_lab_n_prac(_note['title'], _note['h'], _settings['discipline'], "лабораторная работа"),
+    )
+
+    create_note_from_metadata(
+        settings,
+        data,
+        "практос",
+        get_item_name = lambda _n, _note: f"{settings['parctical_part_path']}/Практическая работа №{_n+1}.md",
+        get_item_prop=lambda _settings, _note: create_note_prop("Практическая работа", _settings, _note),
+        get_item_promt=lambda _settings, _note: make_promt_lab_n_prac(_note['title'], _note['h'], _settings['discipline'], "практическая работа"),
+    )
+
+def create_control_notes(settings, data):
+    pass
+
+def create_motivation_notes(settings, data):
+    pass
+
+def create_plan_notes(settings, data):
+    pass
+
+
 def create_all_notes(settings, data):
+    logger.level("CREATING_NOTES", no=11, color="<white>")
+    
     create_lection_notes(settings, data)
+    create_pract_notes(settings, data)
+    create_control_notes(settings, data)
+    create_motivation_notes(settings, data)
+    create_plan_notes(settings, data)

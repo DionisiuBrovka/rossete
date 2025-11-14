@@ -1,0 +1,1 @@
+python main.py compose-umk --ktp_file "C:\Users\Brovka\Desktop\rossete\debug\АЛОВТ_КТП_основная часть.xlsx" --output_dir "C:\Users\Brovka\Desktop" --discipline "Арифметико логические основы вычислительной техники"

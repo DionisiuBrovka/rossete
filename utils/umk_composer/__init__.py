@@ -7,7 +7,7 @@ import os
 
 from .metadata_proccesor import create_metadata_from_ktp, load_metadata
 from .folder_proccesor import create_folders
-from .notes_proccesor import create_lection_notes
+from .notes_proccesor import create_all_notes
 from .arhivator import pack_and_copy_umk
 
 def compose_umk(ktp_file_dir: str, output_file_path: str, discipline: str) -> str:
@@ -30,7 +30,7 @@ def compose_umk(ktp_file_dir: str, output_file_path: str, discipline: str) -> st
         logger.log("COMPOSE_UMK", f"папки созданы", )
 
         logger.log("COMPOSE_UMK", f"создаем заметки лекций", )
-        create_lection_notes(settings, data)
+        create_all_notes(settings, data)
         logger.log("COMPOSE_UMK", f"заметки лекций созданы", )
 
         pack_and_copy_umk(temp_dir, output_file_path)
