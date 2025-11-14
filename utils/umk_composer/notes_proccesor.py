@@ -2,6 +2,19 @@ import os
 import random
 from loguru import logger
 
+
+def create_note_prop(t, settings, note):
+    return f"""---
+gen: "true"
+tags:
+  - {t}
+Тема: {note['topic']}
+Количество часов: {note['h']}
+Номер занятия: {note['number']}
+Состояние: Нужно усовершенствовать 
+---"""
+
+
 def create_note_from_metadata(
         settings : dict, 
         data : dict, 
@@ -53,7 +66,7 @@ def create_lection_notes(settings, data):
         data,
         "лекция",
         get_item_name = lambda _n, _note: f"{settings['teoretical_part_path']}/Лекция №{_n+1}.md",
-        get_item_prop=lambda _settings, _note: "pisi",
+        get_item_prop=lambda _settings, _note: create_note_prop("Лекция", _settings, _note),
         get_item_promt=lambda _settings, _note: "pisi",
     )
 
