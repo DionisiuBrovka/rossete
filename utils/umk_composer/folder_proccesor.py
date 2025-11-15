@@ -13,7 +13,7 @@ def create_folders(base_dir, settings):
     settings['low_part_path'] = f"{base_dir}/5 Работа с низкомотивироваными учащимися"
     settings['high_part_path'] = f"{base_dir}/6 Работа с высокомотивироваными учащимися"
     settings['extra_part_path'] = f"{base_dir}/7 Дополнительные материалы"
-    settings['plans'] = f"{base_dir}/7 Дополнительные материалы/Планы занятий"
+    settings['plans_path'] = f"{base_dir}/7 Дополнительные материалы/Планы занятий"
 
     os.mkdir(settings['teoretical_part_path'])
     logger.log("CREATING_FOLDERS",f"папка {settings['teoretical_part_path']} создана")
@@ -36,6 +36,6 @@ def create_folders(base_dir, settings):
     os.mkdir(settings['extra_part_path'])
     logger.log("CREATING_FOLDERS",f"папка {settings['extra_part_path']} создана")
 
-    os.mkdir(settings['plans'])
-    logger.log("CREATING_FOLDERS",f"папка {settings['plans']} создана")
+    os.mkdir(settings['plans_path'])
+    logger.log("CREATING_FOLDERS",f"папка {settings['plans_path']} создана")
 

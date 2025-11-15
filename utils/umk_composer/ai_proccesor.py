@@ -1,3 +1,6 @@
+from groq import Groq
+
+
 def make_promt_lec(topic, h, discipline):
     return f"""Ты — опытный преподаватель колледжа. 
 Твоя задача — подготовить подробный, структурированный конспект лекции для учебно-методического комплекса (УМК).
@@ -275,3 +278,37 @@ def make_promt_plan(topic, h, discipline, t):
 - Вывод — **только готовый текст в формате Markdown**, без пояснений и комментариев.  
 
 """
+
+def ask_ai(key, promt):
+   client = Groq(
+      api_key=key,
+      default_headers={
+         "Groq-Model-Version": "latest"
+      }
+   )
+   completion = client.chat.completions.create(
+      model="groq/compound",
+      messages=[
+         {
+         "role": "user",
+         "content": promt
+         }
+      ],
+      temperature=0.8,
+      max_completion_tokens=8192,
+      top_p=1,
+      stream=True,
+      stop=None,
+      compound_custom={"tools":{"enabled_tools":["web_search","visit_website"]}}
+   )
+
+   res = ""
+
+   for chunk in completion:
+      print(chunk.choices[0].delta.content or "", end="")
+      res + str(chunk.choices[0].delta.content or "")
+
+   print()
+   res + "\n"
+
+   return res
