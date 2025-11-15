@@ -95,7 +95,7 @@ def gen_notes(base_dir, settings, data):
 
             logger.log("GEN_NOTES",f"\t> генерим файл: {note_path}")
             try:
-                replace_promt_content(note_path, ask_ai("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", promt_text))
+                replace_promt_content(note_path, ask_ai("vYhO2U1", promt_text))
                 logger.log("GEN_NOTES",f"\t> Содержимое файла успешно обновлено.")
                 time.sleep(10)
                 logger.log("GEN_NOTES",f"\t> ✅ Генерация успешна")

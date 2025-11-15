@@ -1,9 +1,11 @@
 import time
 from utils import umk_composer
+from utils.test_run import test
 
 # compose_umk("debug/АЛОВТ_КТП_основная часть.xlsx", "/home/home-pc/Desktop", "Арифметико-логические основы вычислительной техники")
 
 import click
+
 
 @click.group()
 def cli():
@@ -20,3 +22,8 @@ def compose_umk(ktp_file:str, output_dir:str, discipline:str):
     time.sleep(1)
     print()
     umk_composer.compose_umk(ktp_file, output_dir, discipline)
+
+@cli.command()
+def debug():
+    """Запуск дебаг скрипта"""
+    test.test_run()

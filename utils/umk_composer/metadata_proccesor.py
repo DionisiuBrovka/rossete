@@ -5,30 +5,6 @@ from loguru import logger
 from .excel_proccesor import excel_to_structure
 
 
-# def load_metadata(base_dir):
-#     logger.level("LOAD_METADATA", no=11, color="<white>")
-
-#     metadata_path = f"{base_dir}/meta.json"
-
-#     if not os.path.exists(base_dir):
-#         logger.error("Файл мета данных не найден")
-#         raise Exception("Файл мета данных не найден")
-    
-#     logger.log("LOAD_METADATA", f"загружаем мета данные из : {metadata_path}")
-    
-
-#     with open(metadata_path, "r+", encoding="UTF-8") as meta_file:
-#         meta_data = json.load(meta_file)
-
-#         settings = meta_data['settings']
-#         logger.log("LOAD_METADATA", f"Загружены настройки: : всего {len(settings)} записей")
-
-#         data = meta_data['data']
-#         logger.log("LOAD_METADATA", f"Загружены данные: всего {len(data)} записей") 
-
-#         return settings, data
-    
-
 def make_folders_metadata(base_dir):
     folders_metadata = {}
 
@@ -71,14 +47,16 @@ def make_chapters_metadata(items):
     return chapters_metadata
 
 
+def make_lessons_metadata(items, chapters_metadata, topics_metadata):
+    lessons_metadata = {}
+
+    return lessons_metadata
+
+
 def make_notes_metadata(items):
     notes_metadata = {}
 
     return notes_metadata
-
-
-def make_lessons_metadata(items, chapters_metadata, topics_metadata):
-    return {}
 
 
 def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
@@ -91,7 +69,7 @@ def create_metadata_from_ktp(base_dir, ktp_file_path, discipline):
 
     logger.log("CREATE_METADATA", f"парсим файл КТП : {ktp_file_path}")
     items = excel_to_structure(ktp_file_path, sheet_name=0)
-    
+
     folders_metadata = make_folders_metadata(base_dir),
 
     chapters_metadata = make_chapters_metadata(items)
