@@ -1,0 +1,76 @@
+{
+  "id": "lab_work_v1",
+  "name": "Laboratory Work",
+  "description": "Template for practical laboratory work with emphasis on hands-on activities",
+  "version": "1.0",
+  "document_type": "lab_work",
+  "supported_languages": ["en", "ru"],
+  "recommended_parameters": {
+    "work_number": 1,
+    "duration_hours": 2,
+    "include_code_snippets": true,
+    "include_questions_for_preparation": true,
+    "language": "en"
+  },
+  "blocks": [
+    {
+      "type": "title_page",
+      "position": 0,
+      "required": true,
+      "parameters": {
+        "include_date": true,
+        "include_group": true
+      }
+    },
+    {
+      "type": "introduction",
+      "position": 1,
+      "required": true,
+      "parameters": {}
+    },
+    {
+      "type": "main_content",
+      "position": 2,
+      "required": true,
+      "parameters": {
+        "max_tokens": 4000,
+        "include_examples": true
+      }
+    },
+    {
+      "type": "practical_task",
+      "position": 3,
+      "required": true,
+      "parameters": {
+        "task_count": 3,
+        "complexity": "practical"
+      }
+    },
+    {
+      "type": "questions",
+      "position": 4,
+      "required": true,
+      "parameters": {
+        "question_count": 8,
+        "difficulty": "mixed"
+      }
+    },
+    {
+      "type": "references",
+      "position": 5,
+      "required": false,
+      "parameters": {}
+    },
+    {
+      "type": "learning_outcomes",
+      "position": 6,
+      "required": false,
+      "parameters": {}
+    }
+  ],
+  "validation": {
+    "min_total_tokens": 8000,
+    "max_total_tokens": 32000,
+    "required_blocks": ["title_page", "introduction", "practical_task"]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "practical_work_v1",
+  "name": "Practical Work",
+  "description": "Template for practical work assignments with focus on application and skill development",
+  "version": "1.0",
+  "document_type": "practical_work",
+  "supported_languages": ["en", "ru"],
+  "recommended_parameters": {
+    "work_number": 1,
+    "duration_days": 3,
+    "include_code_snippets": true,
+    "language": "en"
+  },
+  "blocks": [
+    {
+      "type": "title_page",
+      "position": 0,
+      "required": true,
+      "parameters": {
+        "include_date": true,
+        "include_group": true
+      }
+    },
+    {
+      "type": "introduction",
+      "position": 1,
+      "required": true,
+      "parameters": {}
+    },
+    {
+      "type": "practical_task",
+      "position": 2,
+      "required": true,
+      "parameters": {
+        "task_count": 5,
+        "complexity": "advanced"
+      }
+    },
+    {
+      "type": "key_takeaways",
+      "position": 3,
+      "required": false,
+      "parameters": {}
+    },
+    {
+      "type": "appendix",
+      "position": 4,
+      "required": false,
+      "parameters": {
+        "include_code_snippets": true,
+        "include_tables": true
+      }
+    },
+    {
+      "type": "learning_outcomes",
+      "position": 5,
+      "required": false,
+      "parameters": {}
+    }
+  ],
+  "validation": {
+    "min_total_tokens": 6000,
+    "max_total_tokens": 32000,
+    "required_blocks": ["title_page", "practical_task"]
+  }
+}
