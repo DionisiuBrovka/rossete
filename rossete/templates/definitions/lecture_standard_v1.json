@@ -1,0 +1,70 @@
+{
+  "id": "lecture_standard_v1",
+  "name": "Standard Lecture (90 minutes)",
+  "description": "Standard 90-minute lecture template with comprehensive block coverage",
+  "version": "1.0",
+  "document_type": "lecture",
+  "supported_languages": ["en", "ru"],
+  "recommended_parameters": {
+    "duration_minutes": 90,
+    "include_code_snippets": true,
+    "language": "en"
+  },
+  "blocks": [
+    {
+      "type": "title_page",
+      "position": 0,
+      "required": true,
+      "parameters": {
+        "include_date": true,
+        "include_group": true
+      }
+    },
+    {
+      "type": "introduction",
+      "position": 1,
+      "required": true,
+      "parameters": {}
+    },
+    {
+      "type": "main_content",
+      "position": 2,
+      "required": true,
+      "parameters": {
+        "max_tokens": 6000,
+        "include_examples": true
+      }
+    },
+    {
+      "type": "key_takeaways",
+      "position": 3,
+      "required": true,
+      "parameters": {}
+    },
+    {
+      "type": "references",
+      "position": 4,
+      "required": false,
+      "parameters": {}
+    },
+    {
+      "type": "practical_task",
+      "position": 5,
+      "required": false,
+      "parameters": {
+        "task_count": 5
+      }
+    },
+    {
+      "type": "learning_outcomes",
+      "position": 6,
+      "required": false,
+      "parameters": {}
+    }
+  ],
+  "validation": {
+    "min_total_tokens": 10000,
+    "max_total_tokens": 32000,
+    "required_blocks": ["title_page", "introduction", "main_content"]
+  }
+}
